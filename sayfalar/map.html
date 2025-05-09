@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<title>GTA Harita</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/></head>
+<body class="map-sayfa">
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="ceteler.html">Çeteler</a></li>
+      <li><a href="zar.html">Hangi Çete Üyesisin</a></li>
+      <li><a href="wallpaper.html">Wallpaper</a></li>
+      <li><a href="../index.html">Çıkış</a></li>
+    </ul>
+  </nav>
+
+<div class="ana-container">
+  <div class="sol-panel">
+    <div class="map-container">
+      <img src="../resimler/gta-sa-map.jpg" class="harita" />
+      <svg class="harita-svg" viewBox="0 0 970 970">
+        <!-- Los Santos -->
+    <polygon points="773,935,709,931,690,916,687,891,665,877,646,863,647,847,642,838,642,805,633,795,599,797,512,792,498,751,501,714,496,688,498,649,512,631,474,631,462,617,471,594,461,566,450,551,439,539,425,534,407,537,395,532,368,532,341,537,327,530,323,512,335,505,335,492,339,475,356,455,384,438,424,438,455,445,483,455,496,461,513,461,526,461,563,433,581,424,633,414,645,397,663,390,693,398,714,407,721,407,731,415,764,415,816,417,850,418,875,421,888,426,898,427,905,430,921,430,929,435,945,441,949,454,950,471,952,489,951,509,949,537,950,554,957,571,956,673,962,722,951,767,951,785,957,801,957,827,949,843,947,897,917,899,894,899,893,921,852,921,826,933" d="..."  onmouseover="tooltipGoster(event, 'Los Santos')" onmouseout="tooltipGizle(event)" onclick="bolgeGoster('Los Santos')" shape="poly" fill="rgba(255, 0, 0, 0.4)" stroke="red" stroke-width="2" />
+
+    <!-- San Fierro -->
+    <polygon points="335,957,377,943,398,945,430,951,465,961,491,939,497,911,485,885,460,859,451,819,440,790,449,754,469,749,485,734,490,719,485,693,495,672,487,660,495,636,467,629,441,607,425,587,433,545,405,541,327,545,306,557,309,519,297,479,293,455,325,411,288,409,239,405,238,378,245,378,245,351,255,352,257,322,243,320,243,274,207,235,170,240,146,252,67,256,50,240,43,264,27,271,24,278,4,288,6,379,16,400,9,409,8,439,7,593,0,610,11,626,17,636,7,676,3,718,7,742,5,774,10,801,29,815,56,839,27,862,27,892,38,918,61,950,114,946,161,947,199,925,224,939,241,960,264,968,293,960" d="..."  onmouseover="tooltipGoster(event, 'San Fierro')" onmouseout="tooltipGizle(event)" onclick="bolgeGoster('San Fierro')" shape="poly" fill="rgba(0, 128, 255, 0.4)" stroke="blue" stroke-width="2" />
+
+    <!-- Las Venturas -->
+    <polygon points="943,388,907,389,884,393,835,394,798,393,745,386,709,386,658,379,639,369,612,387,583,381,549,387,520,385,512,380,505,383,505,392,492,401,481,400,465,408,448,408,440,401,423,401,369,383,349,379,339,368,333,349,327,329,321,306,303,305,303,268,298,240,294,228,267,212,256,218,235,206,218,204,203,196,185,157,179,135,156,127,144,108,148,95,149,84,137,73,127,69,107,82,131,103,127,115,116,120,111,107,96,106,91,117,95,126,78,126,63,123,61,129,47,135,14,138,8,105,15,61,8,36,20,13,57,12,71,9,107,13,134,5,212,3,296,1,345,7,371,3,410,4,441,3,462,12,481,8,494,4,522,8,537,5,575,13,582,19,603,15,638,7,664,8,677,0,943,1,960,16,969,32,965,55,967,334,965,351,965,365,957,379" d="..."  onmouseover="tooltipGoster(event, 'Las Venturas')" onmouseout="tooltipGizle(event)" onclick="bolgeGoster('Las Venturas')" shape="poly" fill="rgba(0, 200, 0, 0.4)" stroke="green" stroke-width="2" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="sag-panel">
+
+    <div class="ust-satir">
+      <h2 style="color: rgb(255, 255, 255);" class="giris-animasyon" >  Hoş geldin, <span id="ad"></span></h2>
+      <div class="kontroller">
+        <button id="muzikBtn" onclick="muzikToggle()">🎵 Sesi Aç  </button><br/>
+        Ses: <input max="1" min="0" onchange="sesAyarla(this.value)" step="0.1" type="range" value="0.5"/>
+      </div>
+      <audio id="muzik" loop="" src="../müzikler/gta-theme.mp3"></audio>
+    </div>
+
+    <p id="mesaj"></p>
+
+    <table id="ceteTablo">
+      <tr>
+        <th>Bölge</th>
+        <th>Çeteler</th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div id="tooltip"
+     style="display:none; position:absolute; background:#222; color:#fff; padding:6px 10px; border-radius:6px; font-size:14px; pointer-events: none; z-index: 1000;">
+</div>
+
+<footer class="site-footer">
+  <p>&copy; Tüm hakları saklıdır.</p>
+  <p>Tasarım: Mete Alp ARSLAN</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
